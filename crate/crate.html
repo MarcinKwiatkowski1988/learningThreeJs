@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas { 
+        width: 100%; height: 100% 
+        }
+    </style>
+  </head>
+  <body>
+    <script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+    <script>
+      var camera;
+      var scene;
+      var renderer;
+      var mesh;
+       
+      init();
+      animate();
+       
+      function init() {
+       
+          scene = new THREE.Scene();
+          camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000);
+       
+          var light = new THREE.DirectionalLight( 0xffffff );
+          light.position.set( 0, 1, 1 ).normalize();
+          scene.add(light);
+       
+          var geometry = new THREE.CubeGeometry( 10, 10, 10);
+          var texture = THREE.ImageUtils.loadTexture( 'crate.jpg');
+          texture.needsUpdate = true;
+          var material = new THREE.MeshLambertMaterial( { map: texture } );
+       
+          mesh = new THREE.Mesh(geometry, material );
+          mesh.position.z = -50;
+          scene.add( mesh );
+       
+          renderer = new THREE.WebGLRenderer();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+          document.body.appendChild( renderer.domElement );
+       
+          window.addEventListener( 'resize', onWindowResize, false );
+       
+          render();
+      }
+       
+      function animate() {
+          //mesh.rotation.x += 0.01;
+          mesh.rotation.y += 0.01;
+       
+          render();
+          requestAnimationFrame( animate );
+      }
+       
+      function render() {
+          renderer.render( scene, camera );
+      }
+       
+      function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+          render();
+      }
+    </script>
+  </body>
+</html>
