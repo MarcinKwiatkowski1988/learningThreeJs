@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas { 
+        width: 100%; height: 100% 
+        }
+    </style>
+  </head>
+  <body>
+    <script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+    <script src="jsLib/THREEx.KeyboardState.js"></script>
+    <script src="jsLib/OrbitControls.js"></script>
+    <script src="forms_basicDetailed.js"></script>
+    <script src="forms_complexDetailed.js"></script>
+    <script>
+      var camera;
+      var controls;
+      var light, light2;
+      var scene;
+      var renderer;
+
+      //basic
+      var cube, cube2,
+        cylinder, cylinder_cone, cylinder_piramid,
+        icosahedron, icosahedron1, icosahedron2, 
+        octahedron, octahedron1, octahedron2,
+        sphere, sphere1, sphere2, sphere3, sphere4,
+        tetrahedron;
+      //complex
+      var torus, torus1, torus2, torus3, torus4, torus5,
+        torus_knot, torus_knot1, torus_knot2, torus_knot3, torus_knot4, torus_knot5;
+
+
+      init();
+      animate();
+       
+      function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000);
+        scene.add(camera);
+        camera.position.set(0,150,200);
+        camera.lookAt(scene.position);
+        keyboard = new THREEx.KeyboardState();
+        light = new THREE.DirectionalLight( 0xffffff );
+        light.position.set( 10, 10, 10 ).normalize();
+        scene.add(light);
+        light2 = new THREE.DirectionalLight( 0xffffff );
+        light2.position.set( -10, -10, -10 ).normalize();
+        scene.add(light2);
+
+        //init the basic forms
+        cube = cube();
+        scene.add(cube);
+        cube2 = cube2();
+        scene.add(cube2);
+        cylinder = cylinder();
+        scene.add(cylinder);
+        cylinder_cone = cylinder_cone();
+        scene.add(cylinder_cone);
+        cylinder_piramid = cylinder_piramid();
+        scene.add(cylinder_piramid);
+        icosahedron = icosahedron();
+        scene.add(icosahedron);
+        icosahedron1 = icosahedron1();
+        scene.add(icosahedron1);
+        icosahedron2 = icosahedron2();
+        scene.add(icosahedron2);
+        octahedron = octahedron();
+        scene.add(octahedron);
+        octahedron1 = octahedron1();
+        scene.add(octahedron1);
+        octahedron2 = octahedron2();
+        scene.add(octahedron2);
+        sphere = sphere();
+        scene.add(sphere);
+        sphere1 = sphere1();
+        scene.add(sphere1);
+        sphere2 = sphere2();
+        scene.add(sphere2);
+        sphere3 = sphere3();
+        scene.add(sphere3);
+        sphere4 = sphere4();
+        scene.add(sphere4);
+        tetrahedron = tetrahedron();
+        scene.add(tetrahedron);
+        //init the complex forms
+        torus = torus();
+        scene.add(torus);
+        torus1 = torus1();
+        scene.add(torus1);
+        torus2 = torus2();
+        scene.add(torus2);
+        torus3 = torus3();
+        scene.add(torus3);
+        torus4 = torus4();
+        scene.add(torus4);
+        torus5 = torus5();
+        scene.add(torus5);
+        torus_knot = torus_knot();
+        scene.add(torus_knot);
+        torus_knot1 = torus_knot1();
+        scene.add(torus_knot1);
+        torus_knot2 = torus_knot2();
+        scene.add(torus_knot2);
+        torus_knot3 = torus_knot3();
+        scene.add(torus_knot3);
+        torus_knot4 = torus_knot4();
+        scene.add(torus_knot4);
+        torus_knot5 = torus_knot5();
+        scene.add(torus_knot5);
+
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        controls = new THREE.OrbitControls( camera, renderer.domElement );
+       
+        window.addEventListener( 'resize', onWindowResize, false );
+       
+        render();
+      }
+       
+      function animate() {
+        //cube1.rotation.y += 0.01;
+        render();
+        requestAnimationFrame( animate );
+        controls.update();
+      }
+       
+      function render() {
+          renderer.render( scene, camera );
+      }
+       
+      function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+          render();
+      }
+
+    </script>
+  </body>
+</html>

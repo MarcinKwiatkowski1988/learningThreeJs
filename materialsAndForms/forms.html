@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas { 
+        width: 100%; height: 100% 
+        }
+    </style>
+  </head>
+  <body>
+    <script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+    <script src="jsLib/THREEx.KeyboardState.js"></script>
+    <script src="jsLib/OrbitControls.js"></script>
+    <script src="forms_basic.js"></script>
+    <script>
+      var camera;
+      var controls;
+      var light, light2;
+      var scene;
+      var renderer;
+
+      var cube, cube2, icosahedron, icosahedron1, icosahedron2, octahedron, sphere, tetrahedron;
+
+      init();
+      animate();
+       
+      function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000);
+        scene.add(camera);
+        camera.position.set(0,150,200);
+        camera.lookAt(scene.position);
+        keyboard = new THREEx.KeyboardState();
+        light = new THREE.DirectionalLight( 0xffffff );
+        light.position.set( 10, 10, 10 ).normalize();
+        scene.add(light);
+        light2 = new THREE.DirectionalLight( 0xffffff );
+        light2.position.set( -10, -10, -10 ).normalize();
+        scene.add(light2);
+
+        //init the forms
+        cube = cube();
+        scene.add(cube);
+        cube2 = cube2();
+        scene.add(cube2);
+        icosahedron = icosahedron();
+        scene.add(icosahedron);
+        icosahedron1 = icosahedron1();
+        scene.add(icosahedron1);
+        icosahedron2 = icosahedron2();
+        scene.add(icosahedron2);
+        octahedron = octahedron();
+        scene.add(octahedron);
+        sphere = sphere();
+        scene.add(sphere);
+        tetrahedron = tetrahedron();
+        scene.add(tetrahedron);
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        controls = new THREE.OrbitControls( camera, renderer.domElement );
+       
+        window.addEventListener( 'resize', onWindowResize, false );
+       
+        render();
+      }
+       
+      function animate() {
+        //cube1.rotation.y += 0.01;
+        render();
+        requestAnimationFrame( animate );
+        controls.update();
+      }
+       
+      function render() {
+          renderer.render( scene, camera );
+      }
+       
+      function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+          render();
+      }
+
+    </script>
+  </body>
+</html>
