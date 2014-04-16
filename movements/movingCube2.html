@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas { 
+        width: 100%; height: 100% 
+        }
+    </style>
+  </head>
+  <body>
+    <script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+    <script src="jsLib/THREEx.KeyboardState.js"></script>
+    <script src="jsLib/OrbitControls.js"></script>
+    <script src="cubes.js"></script>
+    <script>
+      var camera;
+      var controls;
+      var keyboard;
+      var light;
+      var scene;
+      var renderer;
+
+      var cube1, cube2;//, movingCube;
+
+      var collidableMeshList = [];
+      var unlockWMovement; 
+      var unlockSMovement; 
+      var unlockAMovement; 
+      var unlockDMovement;
+
+      init();
+      animate();
+       
+      function init() {
+        unlockWMovement = true;
+        unlockSMovement = true;
+        unlockAMovement = true;
+        unlockDMovement = true;
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000);
+        scene.add(camera);
+        camera.position.set(0,150,400);
+        camera.lookAt(scene.position);
+        //camera.set.position.y = 3;
+        keyboard = new THREEx.KeyboardState();
+        light = new THREE.DirectionalLight( 0xffffff );
+        light.position.set( 0, 1, 1 ).normalize();
+        scene.add(light);
+
+        cube1 = cube1();
+        scene.add(cube1);
+        collidableMeshList.push(cube1);
+        cube2 = cube2();
+        scene.add(cube2);
+        //collidableMeshList.push(cube2);
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        controls = new THREE.OrbitControls( camera, renderer.domElement );
+       
+        window.addEventListener( 'resize', onWindowResize, false );
+       
+        render();
+      }
+       
+      function animate() {
+        var moveDistance = 1;
+        var halfDimCube1 = 5;
+        if ( keyboard.pressed("W") && (unlockWMovement || canMove() ) ){
+          cube2.translateZ( -moveDistance );
+          unlockWMovement = false;
+          unlockSMovement = true;
+          }
+        if ( keyboard.pressed("S") && (unlockSMovement || canMove() ) ){
+          cube2.translateZ(  moveDistance );
+          unlockWMovement = true;
+          unlockSMovement = false;
+          }
+        if ( keyboard.pressed("A") && (unlockAMovement || canMove() ) ){
+          cube2.translateX( -moveDistance );
+          unlockAMovement = false;
+          unlockDMovement = true;
+          }
+        if ( keyboard.pressed("D") && (unlockDMovement || canMove() ) ){
+          cube2.translateX(  moveDistance ); 
+          unlockAMovement = true;
+          unlockDMovement = false;
+          }
+        // rotate left/right/up/down
+        //var rotation_matrix = new THREE.Matrix4().identity();
+        if ( keyboard.pressed("Q") )
+          cube2.rotation.y += 0.01;
+        if ( keyboard.pressed("E") )
+          cube2.rotation.y -= 0.01;
+            //mesh.rotation.x += 0.01;
+        cube1.rotation.y += 0.01;
+        render();
+        requestAnimationFrame( animate );
+        controls.update();
+      }
+       
+      function render() {
+          renderer.render( scene, camera );
+      }
+       
+      function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+          render();
+      }
+
+      function canMove () {
+        var boolToReturn = true;
+        var originPoint = cube2.position.clone();
+
+
+        //var boundingBox = cube2.geometry.boundingBox.clone();
+        //usando come oggetti dei cubi mi conviene usare una boundigSphere invece che boundingBox per
+        // vedere gli effetti della collision
+        //var boundingSphere_cube1 = cube1.computeBoundingSphere.clone();
+        //var boundingSphere_cube2 = cube2.computeBoundingSphere.clone();
+        //var boundingSphere_cube1_radius = boundingSphere_cube1.geometry.radius; 
+        //var boundingSphere_cube2_radius = boundingSphere_cube2.geometry.radius;
+        var boundingSphere_cube1_radius = cube1.geometry.boundingSphere.radius; 
+        var boundingSphere_cube2_radius = cube2.geometry.boundingSphere.radius; 
+        //var position1 = new THREE.Vector3();
+        //var position2 = new THREE.Vector3(); 
+        //position1 = boundingSphere_cube1.position;
+        //position2 = boundingSphere_cube2.position;
+        var position1 = cube1.position;
+        var position2 = cube2.position;
+        var distanceObjects = position2.distanceTo(position1);
+        var objectsRadiusSum = boundingSphere_cube1_radius + boundingSphere_cube2_radius;
+        if (distanceObjects<objectsRadiusSum)
+          boolToReturn = false;
+
+
+        //if (boundingSphere_cube1.position.clone().sub(boundingSphere_cube2.position).normalize().multiplyScalar(yourSphereRadius))
+
+        //to change this part
+        /*for (var vertexIndex = 0; vertexIndex < cube2.geometry.vertices.length; vertexIndex++) {   
+          var localVertex = cube2.geometry.vertices[vertexIndex].clone();
+          var globalVertex = localVertex.applyMatrix4( cube2.matrix );
+          var directionVector = globalVertex.sub( cube2.position );
+          
+          var ray = new THREE.Raycaster( originPoint, directionVector.clone().normalize() );
+          var collisionResults = ray.intersectObjects( collidableMeshList );
+          if ( collisionResults.length > 0 && collisionResults[0].distance < directionVector.length() ) 
+            boolToReturn = false;
+        }*/
+
+        return boolToReturn;
+      }
+
+
+    </script>
+  </body>
+</html>
