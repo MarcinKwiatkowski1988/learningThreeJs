@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas { 
+        width: 100%; height: 100% 
+        }
+    </style>
+  </head>
+  <body>
+    <script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+    <script src="js/PathControls.js"></script>
+    <script>
+      var camera;
+      var controls;
+      var clock = new THREE.Clock();
+      var pathControls;
+      var light;
+      var scene;
+      var renderer;
+
+      init();
+      animate();
+       
+      function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000);
+        scene.add(camera);
+      
+        light = new THREE.DirectionalLight( 0xffffff );
+        light.position.set( 0, 1, 1 ).normalize();
+        scene.add(light);
+
+        controls = new function () {
+          this.numberOfPoints = 5;
+          this.segments = 64;
+          this.radius = 3;
+          this.radiusSegments = 5;
+          this.closed = false;
+          this.points = getPoints();
+          generatePoints(this.points, this.segments, this.radius, this.radiusSegments, this.closed);
+        }
+
+        pathControls = new THREE.PathControls(camera);
+        // configure the controller
+        pathControls.duration = 70
+        pathControls.useConstantSpeed = true;
+        pathControls.lookSpeed = 0.1;
+        pathControls.lookVertical = true;
+        pathControls.lookHorizontal = true;
+        pathControls.verticalAngleMap = {srcRange: [ 0, 2 * Math.PI ], dstRange: [ 1.1, 3.8 ]};
+        pathControls.horizontalAngleMap = {srcRange: [ 0, 2 * Math.PI ], dstRange: [ 0.3, Math.PI - 0.3 ]};
+        pathControls.lon = 300;
+        pathControls.lat = 40;
+        // add the path
+        controls.points.forEach(function(e) {
+          pathControls.waypoints.push([e.x, e.y, e.z]) });
+        // when done configuring init the control
+        pathControls.init();
+        // add the animationParent to the scene and start the animation
+        scene.add(pathControls.animationParent);
+        pathControls.animation.play(true, 0 );
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+       
+        render();
+      }
+       
+      function animate() {
+        var delta = clock.getDelta();
+        THREE.AnimationHandler.update(delta);
+        pathControls.update(delta);
+        render();
+        requestAnimationFrame( animate );
+      }
+
+      function getPoints() {
+        var points = [];
+        points.push(new THREE.Vector3(0, 20, 0));
+        points.push(new THREE.Vector3(100, 25, 0));
+        points.push(new THREE.Vector3(100, 20, 100));
+        points.push(new THREE.Vector3(0, 25, 100));
+        points.push(new THREE.Vector3(0, 20, 0));
+        return points;
+      }
+
+      function render() {
+        renderer.render( scene, camera );
+      }    
+
+      function generatePoints(points, segments, radius, radiusSegments, closed) {
+        // add n random spheres
+        var tube = new THREE.TubeGeometry(new THREE.SplineCurve3(points), segments, radius, radiusSegments, false, closed);
+        var tubeMesh = createMesh(tube);
+        scene.add(tubeMesh);
+      }
+
+      function createMesh(geom) {
+        mesh = THREE.SceneUtils.createMultiMaterialObject( geom, [
+        new THREE.MeshLambertMaterial({
+          color: 0x00ff00,
+          transparent: true
+        }),
+        new THREE.MeshBasicMaterial({
+          color: 0x000000,
+          opacity: 0.3,
+          wireframe: true,
+          transparent: true
+      })]);
+        return mesh;
+      }
+
+    </script>
+  </body>
+</html>
