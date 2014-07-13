@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    canvas { 
+      width: 100%; height: 100% 
+      }
+  </style>
+</head>
+<body>
+  <script src="jsLib/Three.js"></script>
+  <script src="jsLib/three.min.js"></script>
+
+  <script src="jsLib/ColladaLoader.js"></script>
+  <script src="jsLib/PathControls.js"></script>
+  <script src="jsLib/THREEx.KeyboardState.js"></script> 
+
+  <script src="jsLib/graph.js"></script>
+  <script src="jsLib/graph_alt.js"></script>   
+  <script src="jsLib/functions_controls.js"></script>
+  <script src="jsLib/functions_init.js"></script>
+  <script src="jsLib/functions_path.js"></script>
+  <script src="jsLib/functions_pathFromSVG.js"></script>
+
+  <script src="inputs/input_automaticPath.js"></script>
+  <script src="inputs/input_accessArea_area.js"></script>
+  <script src="inputs/input_accessArea_passages.js"></script>
+  <script src="inputs/input_lights.js"></script>
+  <script src="inputs/input_objects.js"></script>
+  <script src="inputs/jsonFromSVG.js"></script>
+  
+  <script>
+    var automaticORmanual;
+    var keyboard;
+    var clock;
+    var scene;
+
+    var path = {};
+
+    init();
+    animate();
+       
+
+    function init () {
+      createPathFromSVG ( path );
+
+      automaticORmanual = 0; //0->automatic; 1->manual
+      clock = new THREE.Clock();
+      scene = new THREE.Scene();
+
+      initCameraAutomatic();
+      initCameraEye();  
+      initLights();
+      initRenderer();
+      initDivWithInfoControls();
+
+      initCeiling();
+      initFloor();
+      initObjects();
+      initWalls();
+
+
+
+
+
+      /*var texture = new THREE.ImageUtils.loadTexture( 'textures/floor.jpg' );
+      var material = new THREE.MeshBasicMaterial( {color: 0x55B663} ); //need basic material and not lambert
+      //texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
+      //var material  = new THREE.MeshBasicMaterial( { map: texture, side: THREE.DoubleSide });//opacity : 0.5, transparent : true, depthWrite : false } );
+      console.log (material.map);
+    var loader = new THREE.JSONLoader();
+    loader.load( "models/bottle.js", function(geometry){
+      mesh = new THREE.Mesh( geometry, material );
+      mesh.position.set ( -9.0, 0.0, -6.0 );
+      scene.add(mesh);
+      }, 'textures/floor.jpg' );*/
+
+
+
+
+      getPathAndRun ();
+      keyboard = new THREEx.KeyboardState();
+
+      render();
+      }
+       
+
+    function animate() {
+      render();
+      requestAnimationFrame( animate );
+
+      if (automaticORmanual==0) {
+        animate_onAutomaticCamera();
+      } else {
+        animate_onManualCamera();
+        }
+      }
+   
+
+    function animate_onAutomaticCamera () {
+      var delta = clock.getDelta();
+      THREE.AnimationHandler.update(delta);
+      pathControls.update(delta);
+      }
+
+
+    function animate_onManualCamera () {
+      var delta = clock.getDelta(); // seconds.
+      var moveDistance = 5 * delta; // 200 pixels per second
+      
+      // move forwards/backwards/left/right
+      if ( keyboard.pressed("W") && ( canAccessArea(moveDistance) || unlockWMovement ) ) {
+        cameraEye.translateZ( -moveDistance );
+        unlockWMovement = false;
+        unlockSMovement = true;
+        }
+      if ( keyboard.pressed("S") && ( canAccessArea(moveDistance) || unlockSMovement ) ) {
+        cameraEye.translateZ(  moveDistance );
+        unlockWMovement = true;
+        unlockSMovement = false;
+        }
+      if ( keyboard.pressed("A") && ( canAccessArea(moveDistance) || unlockAMovement ) ) {
+        cameraEye.translateX( -moveDistance );
+        unlockAMovement = false;
+        unlockDMovement = true;
+        }
+      if ( keyboard.pressed("D") && ( canAccessArea(moveDistance) || unlockDMovement ) ) {
+        cameraEye.translateX(  moveDistance ); 
+        unlockAMovement = true;
+        unlockDMovement = false;
+        }
+
+      // rotate left/right/up/down
+      if ( keyboard.pressed("Q") )
+        cameraEye.rotation.y += 0.01;
+      if ( keyboard.pressed("E") )
+        cameraEye.rotation.y -= 0.01;
+      
+      var relativeCameraOffset = new THREE.Vector3(0,0,1);
+      var cameraOffset = relativeCameraOffset.applyMatrix4( cameraEye.matrixWorld );
+
+      camera.position.x = cameraOffset.x;
+      camera.position.y = cameraOffset.y;
+      camera.position.z = cameraOffset.z;
+      camera.lookAt( cameraEye.position );
+      }
+
+
+    function changeCameraType () {
+      if (automaticORmanual==0) {      
+        document.getElementById('cameraType').value = 'Switch to automatic camera';
+        initCameraManual();
+        initUnlockMovements();
+        camera.position.x = pathControls.object.matrixWorld.getPosition().x;
+        camera.position.y = pathControls.object.matrixWorld.getPosition().y;
+        camera.position.z = pathControls.object.matrixWorld.getPosition().z;
+        cameraEye.position.x = pathControls.object.matrixWorld.getPosition().x;
+        cameraEye.position.y = pathControls.object.matrixWorld.getPosition().y;
+        cameraEye.position.z = pathControls.object.matrixWorld.getPosition().z;
+        delete pathControls;
+        automaticORmanual = 1;
+      } else {
+        document.getElementById('cameraType').value = 'Switch to manual camera';
+        initCameraAutomatic();
+        getNewPath();
+        automaticORmanual = 0;
+        }
+      }  
+
+
+    function render () {
+      renderer.render( scene, camera );
+      }    
+
+  </script>
+</body>
+</html>
