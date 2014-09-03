@@ -50,13 +50,11 @@ function getPathAndRun () {
 
 
 function getPointsFromGraph () {
-    
-
     var g = new Graph( path );
     //console.log ( pathWCPFS );
     //console.log ( g );
-    var startPoint = document.getElementById('startPoint').value;
-    var endPoint = document.getElementById('endPoint').value;
+    var startPoint = document.getElementById('startPoint').value || "2";
+    var endPoint = document.getElementById('endPoint').value || "1";
     var min_path = g.findShortestPath( startPoint, endPoint );
     var points = [];
     for ( var i=0; i<min_path.length; i++ ) 

@@ -1,14 +1,53 @@
+//##6
+var automaticORmanual;
 var camera;
 var cameraEye;
+//##6
+var clock;
 var light1;
 var divWithInfo;
+//##6
+var groupSelected;
+//##6
+var keyboard;
+//##6
+var path = {};
+//##6
+var pathSup = {};
 var renderer;
+//##6
+var scene;
 var unlockWMovement; 
 var unlockSMovement; 
 var unlockAMovement; 
 var unlockDMovement;
-var wallDistance = 1;
 
+
+//##6
+function init () {
+      //createPathFromSVG ( path, userGroups[ "defaultGroup" ].accessiblePaths[ 0 ] );
+      createPathsFromAllSVG ( );
+
+      automaticORmanual = 0; //0->automatic; 1->manual
+      clock = new THREE.Clock();
+      scene = new THREE.Scene();
+
+      initCameraAutomatic();
+      initCameraEye();  
+      initLights();
+      initRenderer();
+      initDivWithConfig ();
+
+      initCeiling();
+      initFloor();
+      initObjects();
+      initWalls();
+
+      getPathAndRun ();
+      keyboard = new THREEx.KeyboardState();
+
+      render();
+      }
 
 
 function initCameraAutomatic () {
@@ -65,40 +104,130 @@ function initCeiling () {
     }
 
 
-function initDivWithInfoControls () {
+function initDivWithConfig () {
 	divWithInfo = document.createElement('div');
 	divWithInfo.class = 'divWithInfoControls';
     divWithInfo.style.position = 'absolute';
     divWithInfo.style.top = '10px';
     divWithInfo.style.width = '100%';
     divWithInfo.style.textAlign = 'center';
-    divWithInfo.innerHTML = 'select points of start and end';
-    var optionToPrint_start = '';
-    optionToPrint_start += '<br/>Start point: <select onchange="getNewPath()" id="startPoint">';
+    //##6
+    var groupToDisplay = '<p id="pSelectGroup" style="display: block;">Select the user group: ';
+    //##6
+    ////groupToDisplay += '<select id="selectGroup" name="selectGroup" onchange="applyGroupSelection()">';
+    groupToDisplay += '<select id="selectGroup" name="selectGroup">';
+    //##6
+    groupToDisplay += '<option selected value="none">Nothing selected</option>';
+    //##6
+    for ( var g in userGroups ) {
+        //if ( g==="group1" )
+        //    groupToDisplay += '<option selected>' + g + '</option>';
+        //else
+            groupToDisplay += '<option value="' + g + '">' + g + '</option>';
+        }
+    //##6    
+    groupToDisplay += '</select></p>';
+    //##6
+    divWithInfo.innerHTML += groupToDisplay;
+
+    //##6
+    //groupSelected = 'group1';
+    //##6 
+    var accessiblePathsToDisplay = '<p id="pSelectAccessiblePaths" style="display: block;">Select the accessible paths: ';
+    //##6
+    ////accessiblePathsToDisplay += '<select id="selectAccessiblePaths" name="selectAccessiblePaths" onchange="applyAccessiblePathsSelection()">';
+    accessiblePathsToDisplay += '<select id="selectAccessiblePaths" name="selectAccessiblePaths" onchange="applyAccessiblePathsSelection()">';
+    //##6
+    //console.log ( document.getElementById( "selectGroup" ).value );
+    //var selectedGValue = document.getElementById( "selectGroup" ).value; 
+    //console.log ( document.getElementById( "selectGroup" ).selectedIndex );
+    //accessiblePathsToDisplay += '<option selected value="none">Nothing selected</option>';
+    //##6
+    for ( var g in userGroups ) {
+        for ( var ap=0; ap<userGroups[ g ].accessiblePaths.length; ap++ ) {
+            var pathsForThisGroup = userGroups[ g ].accessiblePaths[ ap ][ "ns0:svg" ][ "groupPathsName" ];
+        //if ( ap==0 )
+        //   accessiblePathsToDisplay += '<option selected>' + pathsForThisGroup + '</option>';
+        //else
+            accessiblePathsToDisplay += '<option value="' + pathsForThisGroup + '" class="' + g + '">' + pathsForThisGroup + '</option>';
+            }
+        }    
+    //##6    
+    accessiblePathsToDisplay += '</select></p>';
+    //$(function(){ $("#selectAccessiblePaths").chained("#selectGroup"); });
+
+    //##6
+    divWithInfo.innerHTML += accessiblePathsToDisplay;
+
+    var pathPoint_start = '<p id="pSelectStartPoint" style="display: block;">Select the start point of the path: ';
+    pathPoint_start += '<select id="startPoint">';//##6 onchange="getNewPath()">';
     //var s;
     //for ( s=1; s<122; s++ ) {
-    for ( var s in path ) {    
-    	if ( s==="2" )
-    		optionToPrint_start += '<option selected>' + s + '</option>';
-    	else
-    		optionToPrint_start += '<option>' + s + '</option>';
-    	}
-	optionToPrint_start += '</select>';
-    divWithInfo.innerHTML += optionToPrint_start;
-    var optionToPrint_end = '';
-    optionToPrint_end += '<br/>End point: <select onchange="getNewPath()" id="endPoint">';
+    //##6
+    //for ( var g in userGroups ) {
+    for ( var ap=0; ap<userGroups[ "defaultGroup" ].accessiblePaths.length; ap++ ) {
+        var pathsForThisGroup = userGroups[ "defaultGroup" ].accessiblePaths[ ap ][ "ns0:svg" ][ "groupPathsName" ]; 
+        //displayPathOnConsole( pathsForThisGroup );
+        pathSup = pathsMap_stringToObj[ pathsForThisGroup ];
+        //console.log (pathsForThisGroup);
+        for ( var s in pathSup ) {    
+          	if ( s==="1" )
+          		pathPoint_start += '<option selected class="' + pathsForThisGroup + '">' + s + '</option>';
+           	else
+           		pathPoint_start += '<option class="' + pathsForThisGroup + '">' + s + '</option>';
+           	}
+        }    
+    //  }
+
+	pathPoint_start += '</select></p>';
+    divWithInfo.innerHTML += pathPoint_start;
+    
+    /*var pathPoint_start = '<p id="pSelectStartPoint" style="display: block;">Select the start point of the path: ';
+    pathPoint_start += '<select onchange="getNewPath()" id="startPoint">';
     //var e;
     //for ( e=1; e<122; e++ ) {
-    for ( var e in path ) {
-    	if ( e==="6" )
-    		optionToPrint_end += '<option selected>' + e + '</option>';
-    	else
-    		optionToPrint_end += '<option>' + e + '</option>';
-    	}
-	optionToPrint_end += '</select>';
-    divWithInfo.innerHTML += optionToPrint_end;
-    divWithInfo.innerHTML += '<br/><br/><input id="cameraType" type="button" onclick="changeCameraType()" value="Switch to manual camera"/>';
+    for ( var s in path ) {
+        if ( s==="2" )
+            pathPoint_start += '<option selected>' + s + '</option>';
+        else
+            pathPoint_start += '<option>' + s + '</option>';
+        }
+    pathPoint_start += '</select></p>';
+    divWithInfo.innerHTML += pathPoint_start;*/
+
+    //##6
+    var pathPoint_end = '<p id="pSelectEndPoint" style="display: block;">Select the end point of the path: ';
+    pathPoint_end += '<select id="endPoint">';//##6 onchange="getNewPath()" 
+    //var e;
+    //for ( e=1; e<122; e++ ) {
+    for ( var ap=0; ap<userGroups[ "defaultGroup" ].accessiblePaths.length; ap++ ) {
+        var pathsForThisGroup = userGroups[ "defaultGroup" ].accessiblePaths[ ap ][ "ns0:svg" ][ "groupPathsName" ]; 
+        //displayPathOnConsole( pathsForThisGroup );
+        pathSup = pathsMap_stringToObj[ pathsForThisGroup ];
+        for ( var e in pathSup ) {
+        	if ( e==="2" )
+        		pathPoint_end += '<option selected class="' + pathsForThisGroup + '">' + e + '</option>';
+        	else
+        		pathPoint_end += '<option class="' + pathsForThisGroup + '">' + e + '</option>';
+        	}
+        }    
+	pathPoint_end += '</select></p>';
+    divWithInfo.innerHTML += pathPoint_end;
+
+    //##6
+    divWithInfo.innerHTML += '<center><input id="buttonForNewPath" type="button" style="display: none;"' + 
+        'onclick="getNewPath()" value="Run a new path"/></center>';
+    //##6
+    divWithInfo.innerHTML += '<center><input id="cameraType" type="button" style="display: none;"' + 
+        'onclick="changeCameraType()" value="Switch to manual camera"/></center>';
+    //##6
+    divWithInfo.innerHTML += '<center><input id="buttonVisitEnviroment3d" type="button" style="display: none;"' + 
+        'onclick="showEnvironment3D()" value="Visit"/></center>';
     document.body.appendChild( divWithInfo );
+    $("#selectAccessiblePaths").chainedTo("#selectGroup");
+    $("#startPoint").chainedTo("#selectAccessiblePaths");
+    $("#endPoint").chainedTo("#selectAccessiblePaths");
+    //console.log ( document.getElementById( "selectGroup" ).value );
 	}
 
 
@@ -269,4 +398,9 @@ function initWalls () {
 
     //var walls = new THREE.Mesh( walls_blenderData, wallsMaterial );
     //scene.add( walls );
+    }    
+
+//##6
+function render () {
+    renderer.render( scene, camera );
     }    

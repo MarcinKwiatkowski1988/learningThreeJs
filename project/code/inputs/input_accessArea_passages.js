@@ -1,3 +1,5 @@
+var wallDistance = 1;
+
 var accessArea_passage = { //minX, maxZ, maxX, minZ
 	"info": { 
 		"numPassages": 32, 

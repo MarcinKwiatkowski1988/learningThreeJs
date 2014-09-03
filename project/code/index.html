@@ -1,47 +1,63 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <style>
+  <!--<style id='canvasToNavigateIn'>
     canvas { 
-      width: 100%; height: 100% 
+      display: block;
+      width: 100%; height: 100%; 
       }
-  </style>
+    </style>-->
+  <!--<canvas id='canvasToNavigateIn' style='display: block; width: 100%; height: 100%;'></canvas>-->
 </head>
 <body>
+  <div id='startingConfigMenu' style='display: block; width: 120%; height: 120%; position: absolute; background-color: #FFFFFF;'></div>
   <script src="jsLib/Three.js"></script>
   <script src="jsLib/three.min.js"></script>
+
+  <script src="jsLib/jquery_1_10_2.min.js"></script>
+  <script src="jsLib/jquery.chained.min.js"></script>
 
   <script src="jsLib/ColladaLoader.js"></script>
   <script src="jsLib/PathControls.js"></script>
   <script src="jsLib/THREEx.KeyboardState.js"></script> 
 
-  <script src="jsLib/graph.js"></script>
-  <script src="jsLib/graph_alt.js"></script>   
-  <script src="jsLib/functions_controls.js"></script>
-  <script src="jsLib/functions_init.js"></script>
-  <script src="jsLib/functions_path.js"></script>
-  <script src="jsLib/functions_pathFromSVG.js"></script>
-
-  <script src="inputs/input_automaticPath.js"></script>
+    <!-- //##6 <script src="inputs/input_automaticPath.js"></script>-->
   <script src="inputs/input_accessArea_area.js"></script>
   <script src="inputs/input_accessArea_passages.js"></script>
   <script src="inputs/input_lights.js"></script>
   <script src="inputs/input_objects.js"></script>
-  <script src="inputs/jsonFromSVG.js"></script>
+
+  <script src="inputs/jsonFromSVGPaths/jsPaths_1.js"></script>
+  <script src="inputs/jsonFromSVGPaths/jsPaths_2.js"></script>
+  <script src="inputs/jsonFromSVGPaths/jsPaths_3.js"></script>
+  <!-- //##6 <script src="inputs/jsonFromSVG.js"></script>-->
+
+  <script src="config/config_userGroups.js"></script>
+
+  <script src="jsLib/functions.js"></script>
+  <script src="jsLib/functions_controls.js"></script>
+  <script src="jsLib/functions_animate.js"></script>
+  <script src="jsLib/functions_init.js"></script>
+  <script src="jsLib/functions_path.js"></script>
+  <script src="jsLib/functions_pathsFromSVG.js"></script>
+  <script src="jsLib/graph.js"></script>
+  <script src="jsLib/graph_alt.js"></script>    
+
   
   <script>
-    var automaticORmanual;
+//##6
+/*  var automaticORmanual;
     var keyboard;
     var clock;
     var scene;
 
-    var path = {};
+    var path = {}; */
 
     init();
-    animate();
+    //##6animate(); 
        
-
-    function init () {
+//##6
+/*    function init () {
       createPathFromSVG ( path );
 
       automaticORmanual = 0; //0->automatic; 1->manual
@@ -59,33 +75,14 @@
       initObjects();
       initWalls();
 
-
-
-
-
-      /*var texture = new THREE.ImageUtils.loadTexture( 'textures/floor.jpg' );
-      var material = new THREE.MeshBasicMaterial( {color: 0x55B663} ); //need basic material and not lambert
-      //texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
-      //var material  = new THREE.MeshBasicMaterial( { map: texture, side: THREE.DoubleSide });//opacity : 0.5, transparent : true, depthWrite : false } );
-      console.log (material.map);
-    var loader = new THREE.JSONLoader();
-    loader.load( "models/bottle.js", function(geometry){
-      mesh = new THREE.Mesh( geometry, material );
-      mesh.position.set ( -9.0, 0.0, -6.0 );
-      scene.add(mesh);
-      }, 'textures/floor.jpg' );*/
-
-
-
-
       getPathAndRun ();
       keyboard = new THREEx.KeyboardState();
 
       render();
-      }
+      } */
        
-
-    function animate() {
+//##6
+/*  function animate() {
       render();
       requestAnimationFrame( animate );
 
@@ -143,10 +140,10 @@
       camera.position.y = cameraOffset.y;
       camera.position.z = cameraOffset.z;
       camera.lookAt( cameraEye.position );
-      }
+      } */
 
-
-    function changeCameraType () {
+//##6
+/*  function changeCameraType () {
       if (automaticORmanual==0) {      
         document.getElementById('cameraType').value = 'Switch to automatic camera';
         initCameraManual();
@@ -165,12 +162,12 @@
         getNewPath();
         automaticORmanual = 0;
         }
-      }  
+      }  */
 
-
-    function render () {
+//##6
+/*  function render () {
       renderer.render( scene, camera );
-      }    
+      }    */
 
   </script>
 </body>
