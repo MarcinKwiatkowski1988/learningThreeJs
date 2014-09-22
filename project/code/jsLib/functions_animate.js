@@ -81,3 +81,40 @@ function changeCameraType () {
     automaticORmanual = 0;
     }
   }
+
+
+function onDocumentMouseDown( event ) { //served clicked
+  mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1; 
+  // find intersections - create a Ray with origin at the mouse position and direction into the scene (camera direction)
+  var vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
+  projector.unprojectVector( vector, camera );
+  var ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+  var intersects = ray.intersectObjects( scene.children );
+  if ( intersects.length > 0 ) {
+    var objFounded = false;
+    for ( var scf=0; scf<serversClickableFaces.length; scf++ ) {
+      var objFaceNum = serversClickableFaces[ scf ][ 1 ] * 2;
+      console.log( serversClickableFaces[ scf ][ 0 ] );
+      console.log( objFaceNum );
+      console.log( serversClickableFaces[ scf ][ 2 ] )
+      console.log( intersects[ 0 ].object );
+      console.log( !objFounded );
+      console.log( serversClickableFaces[ scf ][ 0 ] === intersects[ 0 ].object );
+      console.log( intersects[ 0 ].object.geometry );
+      console.log( intersects[ 0 ].object.geometry.faces );
+      console.log( intersects[ 0 ].object.geometry.faces[ objFaceNum ]==intersects[ 0 ].face );
+      console.log( intersects[ 0 ].object.geometry.faces[ objFaceNum ] );
+      console.log( intersects[ 0 ].face );
+      console.log( intersects[ 0 ].object.geometry.faces[ objFaceNum+1 ]==intersects[ 0 ].face );
+      console.log( intersects[ 0 ].object.geometry.faces[ objFaceNum+1 ] );
+      console.log( "----------------------------------------------------------" );
+      if ( !objFounded && serversClickableFaces[ scf ][ 0 ] === intersects[ 0 ].object && 
+          ( intersects[ 0 ].object.geometry.faces[ objFaceNum ]==intersects[ 0 ].face || 
+            intersects[ 0 ].object.geometry.faces[ objFaceNum+1 ]==intersects[ 0 ].face ) ) {
+        objFounded = true;
+        window.open( serversClickableFaces[ scf ][ 2 ] );  
+      }
+    }
+  }
+}  

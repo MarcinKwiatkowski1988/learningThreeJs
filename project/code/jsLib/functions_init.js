@@ -10,13 +10,21 @@ var divWithInfo;
 var groupSelected;
 //##6
 var keyboard;
+//##7
+var mouse = { x: 0, y: 0 };
 //##6
 var path = {};
 //##6
 var pathSup = {};
+//##7
+var projector;
 var renderer;
 //##6
 var scene;
+//##7
+var serversClickableFaces = [];
+//##7
+var SCFsupp = [];
 var unlockWMovement; 
 var unlockSMovement; 
 var unlockAMovement; 
@@ -44,9 +52,13 @@ function init () {
       initWalls();
 
       getPathAndRun ();
+
       keyboard = new THREEx.KeyboardState();
+      projector = new THREE.Projector();
 
       render();
+
+      document.addEventListener( 'mousedown', onDocumentMouseDown, false );
       }
 
 
@@ -247,7 +259,8 @@ function initFloor () {
 
 
 function initLights () {
-    for ( var i=0; i<lights.info.numLights; i++ ) {
+    //##7 troppo pesante
+    /*for ( var i=0; i<lights.info.numLights; i++ ) {
         if ( lights[lights.info.lightsList[i]].type=='point' ) {
             var light = lights[lights.info.lightsList[i]];
             //console.log ( light );
@@ -256,7 +269,7 @@ function initLights () {
             //console.log ( light.pos[0], light.pos[1], light.pos[2] );
             scene.add( spotLight );
             }
-        }
+        }*/
 
 
     /*var light = new THREE.PointLight( 0xFFFFFF, 1, 10 );
@@ -294,8 +307,8 @@ function initLights () {
         } */
 
 
-    /*var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
-    scene.add( ambientLight );*/
+    var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
+    scene.add( ambientLight );
 	/*light1 = new THREE.DirectionalLight( 0xffffff );
 	light1.position.set( 0, 1, 1 ).normalize();
 	scene.add(light1);
@@ -311,12 +324,43 @@ function initObjects () {
             var object = objects[objects.info.objectsList[i]];
             //console.log (object);
             var cuboidGeometry = new THREE.CubeGeometry( object.dim[0], object.dim[1], object.dim[2] );
-            var cuboidTexture = THREE.ImageUtils.loadTexture( 'textures/' + object.texture + '.jpg');
-            cuboidTexture.needsUpdate = true;
-            var cuboidMaterial = new THREE.MeshLambertMaterial( { map: cuboidTexture } );     
-            var cuboid = new THREE.Mesh( cuboidGeometry, cuboidMaterial );
+            //##7
+            var cuboidMaterialArray = [];
+            //##7 //order to add materials: x+,x-,y+,y-,z+,z-
+            //##7
+            var cuboidTextureFace1 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace1 + '.jpg');
+            cuboidTextureFace1.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace1 } ) ); 
+            //##7
+            var cuboidTextureFace2 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace2 + '.jpg');
+            cuboidTextureFace2.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace2 } ) ); 
+            //##7
+            var cuboidTextureFace3 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace3 + '.jpg');
+            cuboidTextureFace3.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace3 } ) ); 
+            //##7
+            var cuboidTextureFace4 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace4 + '.jpg');
+            cuboidTextureFace4.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace4 } ) ); 
+            //##7
+            var cuboidTextureFace5 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace5 + '.jpg');
+            cuboidTextureFace5.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace5 } ) ); 
+            //##7
+            var cuboidTextureFace6 = THREE.ImageUtils.loadTexture( 'textures/' + object.textureFace6 + '.jpg');
+            cuboidTextureFace6.needsUpdate = true;
+            cuboidMaterialArray.push( new THREE.MeshLambertMaterial( { map: cuboidTextureFace6 } ) ); 
+            //##7            
+            var cuboidMaterials = new THREE.MeshFaceMaterial( cuboidMaterialArray );
+            //##7 var cuboidMaterial = new THREE.MeshLambertMaterial( { map: cuboidTexture } );     
+            var cuboid = new THREE.Mesh( cuboidGeometry, cuboidMaterials );
             cuboid.position.set ( object.pos[0], object.pos[1], object.pos[2] );
             scene.add ( cuboid );
+            //##7
+            SCFsupp = [ cuboid, object.linkableFace-1, object.link ];
+            //##7
+            serversClickableFaces.push( SCFsupp ) ;
             }
         }
     }

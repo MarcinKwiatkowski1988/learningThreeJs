@@ -1,4 +1,4 @@
-var objects = { //dim x,y,z
+var objects = { //dim x,y,z     //order to add materials for faces: x+,x-,y+,y-,z+,z-
 	"info": { 
 		"numObjects": 123, 
 		"objectsList": ["o01","o02","o03","o04","o05","o06","o07","o08","o09","o10","o11","o12","o13","o14","o15","o16","o17","o18","o19","o20",
@@ -12,738 +12,1599 @@ var objects = { //dim x,y,z
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -5.0 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o02": {
 		"type": 'cuboid',
 		"pos": [ -12, -1.25, -5.0 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o03": {
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -7.25 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o04": {
 		"type": 'cuboid',
 		"pos": [ -12, -1.25, -7.25 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o05": {
 		"type": 'cuboid',
 		"pos": [ -9.75, -1.25, -11.25 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o06": {
 		"type": 'cuboid',
 		"pos": [ -8.25, -1.25, -11.25 ],
 		"dim": [ 1.5, 1.5, 0.75],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},		
 	"o07": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -14 ],
 		"dim": [ 1.5, 1.5, 2.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o08": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -17.25 ],
 		"dim": [ 1.5, 1.5, 2.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o09": {
 		"type": 'cuboid',
 		"pos": [ -12, -1.25, -17.25 ],
 		"dim": [ 1.5, 1.5, 2.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},	
 	"o10": {
 		"type": 'cuboid',
 		"pos": [-14.5, -1.25, -22.75 ],
 		"dim": [ 1, 1.5, 2.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o11": {
 		"type": 'cuboid',
 		"pos": [-12.75, -1.25, -22.75 ],
 		"dim": [ 1, 1.5, 2.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o12": {
 		"type": 'cuboid',
 		"pos": [ -11, -1.25, -22.75 ],
 		"dim": [ 1, 1.5, 2.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o13": {
 		"type": 'cuboid',
 		"pos": [ -14.5, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o14": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o15": {
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o16": {
 		"type": 'cuboid',
 		"pos": [ -13, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o17": {
 		"type": 'cuboid',
 		"pos": [ -11.5, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o18": {
 		"type": 'cuboid',
 		"pos": [ -11, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o19": {
 		"type": 'cuboid',
 		"pos": [ -10.5, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o20": {
 		"type": 'cuboid',
 		"pos": [ -9, -1.25, -32 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o21": {
 		"type": 'cuboid',
 		"pos": [ -14.5, -1.25, -34 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o22": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -34 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o23": {
 		"type": 'cuboid',
 		"pos": [ -10, -1.25, -34 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o24": {
 		"type": 'cuboid',
 		"pos": [-9.5, -1.25, -34 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o25": {
 		"type": 'cuboid',
 		"pos": [-8, -1.25, -34 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o26": {
 		"type": 'cuboid',
 		"pos": [ -14.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o27": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o28": {
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o29": {
 		"type": 'cuboid',
 		"pos": [ -13, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o30": {
 		"type": 'cuboid',
 		"pos": [ -12.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o31": {
 		"type": 'cuboid',
 		"pos": [-12, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o32": {
 		"type": 'cuboid',
 		"pos": [ -11.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o33": {
 		"type": 'cuboid',
 		"pos": [ -11, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o34": {
 		"type": 'cuboid',
 		"pos": [ -10.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o35": {
 		"type": 'cuboid',
 		"pos": [-10, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o36": {
 		"type": 'cuboid',
 		"pos": [ -9.5, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o37": {
 		"type": 'cuboid',
 		"pos": [ -8, -1.25, -36 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o38": {
 		"type": 'cuboid',
 		"pos": [ -14, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o39": {
 		"type": 'cuboid',
 		"pos": [-13.5, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o40": {
 		"type": 'cuboid',
 		"pos": [ -13, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},		
 	"o41": {
 		"type": 'cuboid',
 		"pos": [ -12.5, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o42": {
 		"type": 'cuboid',
 		"pos": [ -12, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o43": {
 		"type": 'cuboid',
 		"pos": [-11.5, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o44": {
 		"type": 'cuboid',
 		"pos": [ -11, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},		
 	"o45": {
 		"type": 'cuboid',
 		"pos": [ -10.5, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o46": {
 		"type": 'cuboid',
 		"pos": [ -10, -1.25, -37.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o47": {
 		"type": 'cuboid',
 		"pos": [ -14.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o48": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o49": {
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o50": {
 		"type": 'cuboid',
 		"pos": [ -12, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o51": {
 		"type": 'cuboid',
 		"pos": [ -11.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o52": {
 		"type": 'cuboid',
 		"pos": [-11, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o53": {
 		"type": 'cuboid',
 		"pos": [ -10.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o54": {
 		"type": 'cuboid',
 		"pos": [ -10, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o55": {
 		"type": 'cuboid',
 		"pos": [ -9.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o56": {
 		"type": 'cuboid',
 		"pos": [-9, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},
 	"o57": {
 		"type": 'cuboid',
 		"pos": [ -8.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},		
 	"o58": {
 		"type": 'cuboid',
 		"pos": [ -8.5, -1.25, -39 ],
 		"dim": [ 0.5, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 6,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 'qrCodes/facebook'
 		},	
 	"o59": {
 		"type": 'cuboid',
 		"pos": [ -5.5, -1.25, -40.5 ],
 		"dim": [ 0.25, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 2,
+		"textureFace1": 't1',
+		"textureFace2": 'qrCodes/facebook',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o60": {
 		"type": 'cuboid',
 		"pos": [ -5.5, -1.25, -40 ],
 		"dim": [ 0.25, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 2,
+		"textureFace1": 't1',
+		"textureFace2": 'qrCodes/facebook',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o61": {
 		"type": 'cuboid',
 		"pos": [ -5.5, -1.25, -39.5 ],
 		"dim": [ 0.25, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 2,
+		"textureFace1": 't1',
+		"textureFace2": 'qrCodes/facebook',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o62": {
 		"type": 'cuboid',
 		"pos": [ -5.5, -1.25, -39 ],
 		"dim": [ 0.25, 1.5, 0.5 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 2,
+		"textureFace1": 't1',
+		"textureFace2": 'qrCodes/facebook',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o63": {
 		"type": 'cuboid',
 		"pos": [ -14.5, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o64": {
 		"type": 'cuboid',
 		"pos": [-14, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o65": {
 		"type": 'cuboid',
 		"pos": [ -13.5, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.225 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},		
 	"o66": {
 		"type": 'cuboid',
 		"pos": [ -13, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o67": {
 		"type": 'cuboid',
 		"pos": [ -12.5, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o68": {
 		"type": 'cuboid',
 		"pos": [-12, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},
 	"o69": {
 		"type": 'cuboid',
 		"pos": [ -11, -1.25, -40.5 ],
 		"dim": [ 0.5, 1.5, 0.25 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 5,
+		"textureFace1": 't1',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 'qrCodes/facebook',
+		"textureFace6": 't1'
 		},	
 	"o70": {
 		"type": 'cuboid',
 		"pos": [ 0, -1.25, -19.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o71": {
 		"type": 'cuboid',
 		"pos": [ 0, -1.25, -20.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o72": {
 		"type": 'cuboid',
 		"pos": [ 0, -1.25, -21.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o73": {
 		"type": 'cuboid',
 		"pos": [ 0, -1.25, -22.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o74": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -17.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o75": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -18.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o76": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -19.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o77": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -20.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o78": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -21.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o79": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -22.5 ],
 		"dim": [ 0.75, 1.5, 1 ],
-		"texture": 't1'
+		"link": 'https://www.facebook.com/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/facebook',
+		"textureFace2": 't1',
+		"textureFace3": 't1',
+		"textureFace4": 't1',
+		"textureFace5": 't1',
+		"textureFace6": 't1'
 		},
 	"o80": {
 		"type": 'cuboid',
 		"pos": [ 2, -1.25, -25.5 ],
 		"dim": [ 1.5, 1.5, 2 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o81": {
 		"type": 'cuboid',
-		"pos": [ 1, -1.25, -30 ],
+		"pos": [ 0.5, -1.25, -30 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o82": {
 		"type": 'cuboid',
-		"pos": [ 2, -1.25, -30 ],
+		"pos": [ 1.5, -1.25, -30 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o83": {
 		"type": 'cuboid',
-		"pos": [ 3, -1.25, -30 ],
+		"pos": [ 2, -1.25, -30 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o84": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -31.5 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o85": {
 		"type": 'cuboid',
 		"pos": [ 2.5, -1.25, -31.5 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o86": {
 		"type": 'cuboid',
 		"pos": [ 1, -1.25, -35 ],
 		"dim": [ 1.5, 1.5, 2 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o87": {
 		"type": 'cuboid',
 		"pos": [ 7.5, -1.25, -11.25 ],
 		"dim": [ 0.5, 1.5, 1.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o88": {
 		"type": 'cuboid',
 		"pos": [ 9, -1.25, -11 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},	
 	"o89": {
 		"type": 'cuboid',
 		"pos": [ 9, -1.25, -12 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o90": {
 		"type": 'cuboid',
 		"pos": [ 10.25, -1.25, -15.5 ],
 		"dim": [ 0.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},	
 	"o91": {
 		"type": 'cuboid',
 		"pos": [ 9.75, -1.25, -15.5 ],
 		"dim": [ 0.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o92": {
 		"type": 'cuboid',
 		"pos": [ 7.25, -1.25, -19.25 ],
 		"dim": [ 1.5, 1.5, 2.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o93": {
 		"type": 'cuboid',
 		"pos": [ 7, -1.25, -23.5 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o94": {
 		"type": 'cuboid',
 		"pos": [ 8, -1.25, -23.5 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o95": {
 		"type": 'cuboid',
 		"pos": [ 9, -1.25, -23.5 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o96": {
 		"type": 'cuboid',
 		"pos": [ 8.75, -1.25, -26.25 ],
 		"dim": [ 1.5, 1.5, 2.5 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 6,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 'qrCodes/mekSite'
 		},
 	"o97": {
 		"type": 'cuboid',
 		"pos": [ 10, -1.25, -31.5 ],
 		"dim": [ 3, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o98": {
 		"type": 'cuboid',
 		"pos": [ 9, -1.25, -34 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o99": {
 		"type": 'cuboid',
 		"pos": [ 10, -1.25, -34 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o100": {
 		"type": 'cuboid',
 		"pos": [ 11, -1.25, -34 ],
 		"dim": [ 1, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 5,
+		"textureFace1": 't2',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 'qrCodes/mekSite',
+		"textureFace6": 't2'
 		},
 	"o101": {
 		"type": 'cuboid',
 		"pos": [ 1.5, -1.25, -39 ],
 		"dim": [ 2.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o102": {
 		"type": 'cuboid',
 		"pos": [ 1.5, -1.25, -41 ],
 		"dim": [ 2.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o103": {
 		"type": 'cuboid',
 		"pos": [ 8, -1.25, -40 ],
 		"dim": [ 3, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o104": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -11 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o105": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -11 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},					
 	"o106": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -13 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o107": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -15.5 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},			
 	"o108": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -18 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},	
 	"o109": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -20 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o110": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -22 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o111": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -22 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o112": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -24 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},							
 	"o113": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -25 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o114": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -25 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},	
 	"o115": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -27 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},	
 	"o116": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -35 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o117": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -35 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o118": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -37 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o119": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -37 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o120": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -39.5 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o121": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -39.5 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o122": {
 		"type": 'cuboid',
 		"pos": [ 21.75, -1.25, -42.5 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 1,
+		"textureFace1": 'qrCodes/mekSite',
+		"textureFace2": 't2',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		},
 	"o123": {
 		"type": 'cuboid',
 		"pos": [ 26.25, -1.25, -42.5 ],
 		"dim": [ 1.5, 1.5, 1 ],
-		"texture": 't2'
+		"link": 'http://mek.site88.net/',
+		"linkableFace": 2,
+		"textureFace1": 't2',
+		"textureFace2": 'qrCodes/mekSite',
+		"textureFace3": 't2',
+		"textureFace4": 't2',
+		"textureFace5": 't2',
+		"textureFace6": 't2'
 		}
 };
